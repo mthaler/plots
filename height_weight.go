@@ -17,10 +17,3 @@ func parseHeightWeight(s []string) (*HeightWeight, error) {
 
 	return &HeightWeight{height: h, weight: w}, nil
 }
-
-func (h HeightWeight) toSlice() []float64 {
-	result := make([]float64, 2)
-	result[0] = h.height
-	result[1] = h.weight
-	return result
-}
