@@ -4,10 +4,15 @@ import (
 	"encoding/csv"
 	"log"
 	"os"
+
+	"gonum.org/v1/plot"
 )
 
 func main() {
-
+	p := plot.New()
+	p.Title.Text = "Height - Weight Plot"
+	p.X.Label.Text = "heigt"
+	p.Y.Label.Text = "weight"
 }
 
 func readCsvFile(filePath string) [][]string {
