@@ -12,7 +12,8 @@ func TestHeightWeightParse(t *testing.T) {
 	if err != nil {
 		log.Fatal("Error while parsing height and weight")
 	}
-	if !want.MatchString(msg) || err != nil {
-		t.Errorf(`Hello("Gladys") = %q, %v, want match for %#q, nil`, msg, err, want)
+	h := toInt(hw.height)
+	if h != 1 {
+		t.Errorf("Height = %d, expected 1", h)
 	}
 }
