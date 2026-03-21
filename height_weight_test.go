@@ -8,8 +8,7 @@ import (
 // TestHelloName calls greetings.Hello with a name, checking
 // for a valid return value.
 func TestHeightWeightParse(t *testing.T) {
-	hw1 := HeightWeight{}
-	hw2, err := hw1.parse([]string{"1", "2"})
+	hw, err := parseHeightWeight([]string{"1", "2"})
 	if err != nil {
 		log.Fatal("Error while parsing height and weight")
 	}

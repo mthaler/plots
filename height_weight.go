@@ -9,7 +9,7 @@ type HeightWeight struct {
 	weight float64
 }
 
-func (h HeightWeight) parse(text []string) (*HeightWeight, error) {
+func parseHeightWeight(text []string) (*HeightWeight, error) {
 	return nil, errors.New("could not parse height and weight")
 }
 
