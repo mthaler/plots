@@ -1,16 +1,21 @@
 package main
 
-import (
-	"errors"
-)
-
 type HeightWeight struct {
 	height float64
 	weight float64
 }
 
-func parseHeightWeight(text []string) (*HeightWeight, error) {
-	return nil, errors.New("could not parse height and weight")
+func parseHeightWeight(s []string) (*HeightWeight, error) {
+	h, err := parseFloat(s[0])
+	if err != nil {
+		return nil, err
+	}
+	w, err := parseFloat(s[1])
+	if err != nil {
+		return nil, err
+	}
+
+	return &HeightWeight{height: h, weight: w}, nil
 }
 
 func (h HeightWeight) toSlice() []float64 {
