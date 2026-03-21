@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/csv"
+	"fmt"
 	"log"
 	"os"
 
@@ -11,6 +12,9 @@ import (
 )
 
 func main() {
+	whs := readCsvFile("NHANES-2017-2018-height-weight.csv")
+	fmt.Printf("%g", whs)
+
 	p := plot.New()
 	p.Title.Text = "Height - Weight Plot"
 	p.X.Label.Text = "heigt"
