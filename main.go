@@ -24,6 +24,14 @@ func main() {
 	xs := make([]float64, 0)
 	ys := make([]float64, 0)
 
+	for _, ws := range whs {
+		h, err := parseFloat(ws[3])
+		if err != nil {
+			log.Fatalf("could not parse %s", ws[3])
+		}
+		xs = append(xs, h)
+	}
+
 	err := plotutil.AddScatters(p, "f(x) = 2*x", hplot.ZipXY(xs, ys))
 	if err != nil {
 		log.Fatalf("could not create scatters: %+v", err)
