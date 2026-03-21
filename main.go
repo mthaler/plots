@@ -5,6 +5,7 @@ import (
 	"log"
 	"os"
 
+	"go-hep.org/x/hep/hplot"
 	"gonum.org/v1/plot"
 	"gonum.org/v1/plot/plotutil"
 )
