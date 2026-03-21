@@ -6,6 +6,7 @@ import (
 	"os"
 
 	"gonum.org/v1/plot"
+	"gonum.org/v1/plot/plotutil"
 )
 
 func main() {
@@ -13,6 +14,11 @@ func main() {
 	p.Title.Text = "Height - Weight Plot"
 	p.X.Label.Text = "heigt"
 	p.Y.Label.Text = "weight"
+
+	err := plotutil.AddScatters(p, "f(x) = 2*x", hplot.ZipXY(xs, ys))
+	if err != nil {
+		log.Fatalf("could not create scatters: %+v", err)
+	}
 }
 
 func readCsvFile(filePath string) [][]string {
