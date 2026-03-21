@@ -16,6 +16,9 @@ func main() {
 	p.X.Label.Text = "heigt"
 	p.Y.Label.Text = "weight"
 
+	xs := make([]float64, 0)
+	ys := make([]float64, 0)
+
 	err := plotutil.AddScatters(p, "f(x) = 2*x", hplot.ZipXY(xs, ys))
 	if err != nil {
 		log.Fatalf("could not create scatters: %+v", err)
