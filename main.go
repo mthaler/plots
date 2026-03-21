@@ -12,7 +12,7 @@ import (
 )
 
 func main() {
-	// The data is from NIHANES (https://www.cdc.gov/nchs/nhanes/index.html)
+	// The data is from NHANES (https://www.cdc.gov/nchs/nhanes/index.html)
 	whs := readCsvFile("NHANES-2017-2018-height-weight.csv")
 	fmt.Printf("%g", whs)
 
