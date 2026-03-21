@@ -16,4 +16,8 @@ func TestHeightWeightParse(t *testing.T) {
 	if h != 1 {
 		t.Errorf("Height = %d, expected 1", h)
 	}
+	w := toInt(hw.weight)
+	if w != 2 {
+		t.Errorf("Weight = %d, expected 2", w)
+	}
 }
