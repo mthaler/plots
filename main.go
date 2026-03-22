@@ -4,6 +4,8 @@ import (
 	"encoding/csv"
 	"log"
 	"os"
+
+	"gonum.org/v1/plot/plotter"
 )
 
 func main() {
@@ -33,8 +35,19 @@ func main() {
 		}
 	}
 
+	var hs plotter.Values
+	for i, ws := range whs {
+		if i != 0 {
+			h, err := parseFloat(ws[4])
+			if err != nil {
+				log.Fatalf("could not parse %s", ws[4])
+			}
+			hs = append(hs, h)
+		}
+	}
+
 	CreateScatterPlot(xs, ys, "scatter.png")
-	CreateHistogram(xs, ys, "histogram.png")
+	CreateHistogram(hs, "histogram.png")
 }
 
 func readCsvFile(filePath string) [][]string {

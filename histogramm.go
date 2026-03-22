@@ -3,18 +3,17 @@ package main
 import (
 	"log"
 
-	"go-hep.org/x/hep/hplot"
 	"gonum.org/v1/plot"
 	"gonum.org/v1/plot/plotter"
 	"gonum.org/v1/plot/vg"
 )
 
-func CreateHistogram(xs, ys []float64, file string) {
+func CreateHistogram(xs plotter.Values, file string) {
 	p := plot.New()
 	p.Title.Text = "Height Histogram"
 	p.X.Label.Text = "height"
 
-	h, err := plotter.NewHistogram(hplot.ZipXY(xs, ys), 100)
+	h, err := plotter.NewHist(xs, 100)
 	if err != nil {
 		log.Fatalf("could not create histogtam: %+v", err)
 	}
