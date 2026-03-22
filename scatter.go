@@ -17,7 +17,7 @@ func CreateScatterPlot(xs, ys []float64, file string) {
 
 	err := plotutil.AddScatters(p, "", hplot.ZipXY(xs, ys))
 	if err != nil {
-		log.Fatalf("could not create scatters: %+v", err)
+		log.Fatalf("could not create scatter plot: %+v", err)
 	}
 
 	err = p.Save(20*vg.Centimeter, 10*vg.Centimeter, file)
