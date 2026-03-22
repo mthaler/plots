@@ -34,6 +34,7 @@ func main() {
 	}
 
 	CreateScatterPlot(xs, ys, "scatter.png")
+	CreateHistogram(xs, ys, "histogram.png")
 }
 
 func readCsvFile(filePath string) [][]string {
