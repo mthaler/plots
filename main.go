@@ -33,7 +33,7 @@ func main() {
 		}
 	}
 
-	CreateScatterPlot(xs, ys)
+	CreateScatterPlot(xs, ys, "scatter.png")
 }
 
 func readCsvFile(filePath string) [][]string {
