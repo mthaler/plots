@@ -2,19 +2,18 @@ package main
 
 import (
 	"encoding/csv"
-	"fmt"
 	"log"
 	"os"
 
 	"go-hep.org/x/hep/hplot"
 	"gonum.org/v1/plot"
 	"gonum.org/v1/plot/plotutil"
+	"gonum.org/v1/plot/vg"
 )
 
 func main() {
 	// The data is from NHANES (https://www.cdc.gov/nchs/nhanes/index.html)
 	whs := readCsvFile("NHANES-2017-2018-height-weight.csv")
-	fmt.Printf("%g", whs)
 
 	p := plot.New()
 	p.Title.Text = "Height - Weight Plot"
@@ -24,25 +23,34 @@ func main() {
 	xs := make([]float64, 0)
 	ys := make([]float64, 0)
 
-	for _, ws := range whs {
-		h, err := parseFloat(ws[3])
-		if err != nil {
-			log.Fatalf("could not parse %s", ws[3])
+	for i, ws := range whs {
+		if i != 0 {
+			h, err := parseFloat(ws[3])
+			if err != nil {
+				log.Fatalf("could not parse %s", ws[3])
+			}
+			xs = append(xs, h)
 		}
-		xs = append(xs, h)
 	}
 
-	for _, ws := range whs {
-		w, err := parseFloat(ws[2])
-		if err != nil {
-			log.Fatalf("could not parse %s", ws[2])
+	for i, ws := range whs {
+		if i != 0 {
+			w, err := parseFloat(ws[2])
+			if err != nil {
+				log.Fatalf("could not parse %s", ws[2])
+			}
+			ys = append(ys, w)
 		}
-		xs = append(xs, w)
 	}
 
 	err := plotutil.AddScatters(p, "f(x) = 2*x", hplot.ZipXY(xs, ys))
 	if err != nil {
 		log.Fatalf("could not create scatters: %+v", err)
+	}
+
+	err = p.Save(20*vg.Centimeter, 10*vg.Centimeter, "scatter.png")
+	if err != nil {
+		log.Fatalf("could not save scatter plot: %+v", err)
 	}
 }
 
