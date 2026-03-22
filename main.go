@@ -25,9 +25,9 @@ func main() {
 
 	for i, ws := range whs {
 		if i != 0 {
-			h, err := parseFloat(ws[3])
+			h, err := parseFloat(ws[4])
 			if err != nil {
-				log.Fatalf("could not parse %s", ws[3])
+				log.Fatalf("could not parse %s", ws[4])
 			}
 			xs = append(xs, h)
 		}
@@ -35,9 +35,9 @@ func main() {
 
 	for i, ws := range whs {
 		if i != 0 {
-			w, err := parseFloat(ws[2])
+			w, err := parseFloat(ws[3])
 			if err != nil {
-				log.Fatalf("could not parse %s", ws[2])
+				log.Fatalf("could not parse %s", ws[3])
 			}
 			ys = append(ys, w)
 		}
