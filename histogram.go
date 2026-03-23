@@ -8,10 +8,10 @@ import (
 	"gonum.org/v1/plot/vg"
 )
 
-func CreateHistogram(xs plotter.Values, file string, title string) {
+func CreateHistogram(xs plotter.Values, file string, title string, label string) {
 	p := plot.New()
 	p.Title.Text = title
-	p.X.Label.Text = "height"
+	p.X.Label.Text = label
 
 	h, err := plotter.NewHist(xs, 100)
 	if err != nil {
