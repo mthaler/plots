@@ -36,18 +36,30 @@ func main() {
 	}
 
 	var hs plotter.Values
-	for i, ws := range whs {
+	for i, wh := range whs {
 		if i != 0 {
-			h, err := parseFloat(ws[4])
+			h, err := parseFloat(wh[4])
 			if err != nil {
-				log.Fatalf("could not parse %s", ws[4])
+				log.Fatalf("could not parse %s", wh[4])
 			}
 			hs = append(hs, h)
 		}
 	}
 
+	var ws plotter.Values
+	for i, wh := range whs {
+		if i != 0 {
+			w, err := parseFloat(wh[3])
+			if err != nil {
+				log.Fatalf("could not parse %s", wh[4])
+			}
+			hs = append(hs, w)
+		}
+	}
+
 	CreateScatterPlot(xs, ys, "scatter.png")
 	CreateHistogram(hs, "histogram_heights.png")
+	CreateHistogram(ws, "histogram_heights.png")
 }
 
 func readCsvFile(filePath string) [][]string {
