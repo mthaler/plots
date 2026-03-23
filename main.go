@@ -53,7 +53,7 @@ func main() {
 			if err != nil {
 				log.Fatalf("could not parse %s", wh[4])
 			}
-			hs = append(hs, w)
+			ws = append(ws, w)
 		}
 	}
 
