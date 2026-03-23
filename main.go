@@ -59,7 +59,7 @@ func main() {
 
 	CreateScatterPlot(xs, ys, "scatter.png")
 	CreateHistogram(hs, "histogram_heights.png")
-	CreateHistogram(ws, "histogram_heights.png")
+	CreateHistogram(ws, "histogram_weights.png")
 }
 
 func readCsvFile(filePath string) [][]string {
